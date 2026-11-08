@@ -1,0 +1,17 @@
+OHLI SOCIAL v3.6.20 — PERBAIKAN PREVIEW DAN GANTI KAMERA LIVE
+
+Basis source: v3.6.19. Perubahan terarah hanya pada pratinjau kamera Host dan pertukaran kamera belakang/depan dalam Studio LIVE.
+
+Perubahan:
+1. Menghapus race pada event loadedmetadata yang sebelumnya dapat menampilkan avatar Host kembali setelah kamera aktif. Avatar hanya disembunyikan setelah video lokal mulai memutar frame.
+2. Mengikat ulang elemen video lokal dengan stream terbaru dan memastikan autoplay, playsinline, dan muted untuk preview Host.
+3. Mengganti kamera dengan meminta MediaStream baru menggunakan facingMode exact (dengan fallback ideal), bukan mengandalkan applyConstraints yang tidak konsisten antar browser iOS.
+4. Mengganti video sender pada setiap RTCPeerConnection aktif menggunakan replaceTrack sebelum track kamera lama dihentikan, agar penonton menerima kamera yang baru.
+5. Menjaga audio stream lama tetap aktif saat kamera ditukar; track audio dari stream kamera sementara dihentikan.
+6. Menambahkan rollback jika penggantian track pada peer gagal.
+7. Android versionName 3.6.20, versionCode 49; endpoint health, cache-busting aset, dan workflow mengikuti versi ini.
+
+Batas pengujian:
+- Pemeriksaan source dan JavaScript dijalankan secara lokal.
+- Belum ada uji kamera Safari/iPhone fisik dua perangkat; keberhasilan pengambilan kamera belakang dan preview tetap harus diuji pada perangkat yang bermasalah.
+- Build Gradle penuh belum dijalankan di lingkungan ini.

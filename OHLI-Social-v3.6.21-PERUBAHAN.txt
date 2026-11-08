@@ -1,0 +1,11 @@
+OHLI SOCIAL v3.6.21 — SOROTAN BULAT, RIWAYAT AKTIVITAS MEDIA, NOTIFIKASI APK
+
+Basis source: v3.6.20. Perubahan dibatasi pada Sorotan profil, History aktivitas, endpoint pembukaan postingan dari History, dan notifikasi aplikasi server.
+
+1. Sampul Sorotan profil dipaksa memiliki lebar/tinggi sama, flex-basis tetap, aspect-ratio 1:1, dan border-radius 50%. Foto/video menggunakan object-fit cover sehingga tidak membentuk thumbnail lonjong.
+2. Riwayat aktivitas sekarang dikelompokkan berdasarkan tanggal dan ditampilkan sebagai kartu media. Server menambahkan metadata preview untuk postingan yang masih bisa dibaca, Story yang masih memiliki akses, Sorotan, dan profil.
+3. Menekan item History membuka kembali profil atau postingan asli. Endpoint `/api/posts/item` memvalidasi sesi, status arsip, dan izin baca sebelum mengirim postingan. Item yang tidak lagi tersedia tidak dibuka.
+4. APK menerima notifikasi Android untuk server mulai/berhenti/error dan verifikasi akun. OTP tetap menggunakan kanal privat khusus; OTP tidak diduplikasi ke kanal umum. Semua pemberitahuan tetap tersimpan di Pusat Notifikasi APK untuk dibaca ulang.
+5. Tidak menggunakan WhatsApp API, tidak memerlukan akun Business, token WA, atau password WhatsApp. Notifikasi otomatis masuk ke Android/Pusat Notifikasi APK; mengirim pesan WhatsApp otomatis tanpa API resmi tidak dilakukan.
+
+Android versionName 3.6.21; versionCode 50.
